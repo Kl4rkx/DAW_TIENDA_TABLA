@@ -16,61 +16,33 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-/**
- * Ventana principal de la aplicación de Gestión de Clientes.
- * <p>
- * Proporciona acceso a las operaciones CRUD sobre clientes: dar de alta,
- * modificar, eliminar y visualizar todos los clientes.
- * </p>
- *
- * @author SwingTienda
- * @version 1.0
- */
 public class VentanaPrincipal extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
 	// Colores
-	/** Color corporativo principal (azul oscuro). */
 	private static final Color COLOR_CORPORATIVO = new Color(25, 55, 109);
-	/** Color de fondo general de la ventana. */
 	private static final Color COLOR_FONDO = new Color(240, 243, 247);
-	/** Color de texto claro sobre fondos oscuros. */
 	private static final Color COLOR_TEXTO_CLARO = Color.WHITE;
-	/** Color de fondo de los botones principales. */
 	private static final Color COLOR_BOTON = new Color(41, 98, 168);
-	/** Color de la barra de estado. */
-	private static final Color COLOR_BARRA_ESTADO = new Color(220, 225, 230);
-	/** Color del borde sutil de los botones. */
 	private static final Color COLOR_BORDE_BOTON = new Color(30, 75, 135);
 
 	// Tamaños
-	/** Anchura mínima de la ventana en píxeles. */
 	private static final int ANCHO_VENTANA = 650;
-	/** Altura mínima de la ventana en píxeles. */
 	private static final int ALTO_VENTANA = 450;
-	/** Anchura preferida de los botones principales. */
 	private static final int ANCHO_BOTON = 200;
-	/** Altura preferida de los botones principales. */
 	private static final int ALTO_BOTON = 55;
-	/** Margen interno (padding) de los botones. */
 	private static final int PADDING_BOTON = 10;
 
 	// Fuentes
-	/** Fuente para el título de la cabecera. */
 	private static final Font FUENTE_TITULO = new Font("Segoe UI", Font.BOLD, 18);
-	/** Fuente para los botones principales. */
 	private static final Font FUENTE_BOTON = new Font("Segoe UI", Font.PLAIN, 13);
-	/** Fuente para la barra de estado. */
-	private static final Font FUENTE_ESTADO = new Font("Segoe UI", Font.PLAIN, 11);
 
 	// Componentes de la interfaz
 	private JPanel contentPane;
 	private JPanel pnlCabecera;
 	private JPanel pnlBotones;
-	private JPanel pnlEstado;
 	private JLabel lblTitulo;
-	private JLabel lblEstado;
 	public JButton btnAltaCliente;
 	public JButton btnModificarCliente;
 	public JButton btnEliminarCliente;
@@ -89,7 +61,7 @@ public class VentanaPrincipal extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(true);
 
-		// ── Panel de contenido principal ──
+		// - Panel de contenido principal
 		contentPane = new JPanel();
 		contentPane.setName("contentPane");
 		contentPane.setBackground(COLOR_FONDO);
@@ -97,7 +69,7 @@ public class VentanaPrincipal extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 
-		// ── Panel superior (cabecera) ──
+		// - Panel superior (cabecera)
 		pnlCabecera = new JPanel();
 		pnlCabecera.setName("pnlCabecera");
 		pnlCabecera.setBackground(COLOR_CORPORATIVO);
@@ -113,7 +85,7 @@ public class VentanaPrincipal extends JFrame {
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		pnlCabecera.add(lblTitulo, BorderLayout.CENTER);
 
-		// ── Panel central (botones) ──
+		// - Panel central (botones)
 		pnlBotones = new JPanel();
 		pnlBotones.setName("pnlBotones");
 		pnlBotones.setBackground(COLOR_FONDO);
@@ -127,7 +99,7 @@ public class VentanaPrincipal extends JFrame {
 		pnlBotones.setLayout(gblPnlBotones);
 		contentPane.add(pnlBotones, BorderLayout.CENTER);
 
-		// ── Botón: Dar de alta un cliente ──
+		// - Botón: Dar de alta un cliente
 		btnAltaCliente = new JButton("Dar de alta un cliente");
 		btnAltaCliente.setName("btnAltaCliente");
 		btnAltaCliente.setFont(FUENTE_BOTON);
@@ -148,7 +120,7 @@ public class VentanaPrincipal extends JFrame {
 		gbcBtnAlta.gridy = 0;
 		pnlBotones.add(btnAltaCliente, gbcBtnAlta);
 
-		// ── Botón: Modificar cliente ──
+		// - Botón: Modificar cliente
 		btnModificarCliente = new JButton("Modificar cliente");
 		btnModificarCliente.setName("btnModificarCliente");
 		btnModificarCliente.setFont(FUENTE_BOTON);
@@ -169,7 +141,7 @@ public class VentanaPrincipal extends JFrame {
 		gbcBtnModificar.gridy = 0;
 		pnlBotones.add(btnModificarCliente, gbcBtnModificar);
 
-		// ── Botón: Eliminar cliente ──
+		// - Botón: Eliminar cliente
 		btnEliminarCliente = new JButton("Eliminar cliente");
 		btnEliminarCliente.setName("btnEliminarCliente");
 		btnEliminarCliente.setFont(FUENTE_BOTON);
@@ -190,7 +162,7 @@ public class VentanaPrincipal extends JFrame {
 		gbcBtnEliminar.gridy = 1;
 		pnlBotones.add(btnEliminarCliente, gbcBtnEliminar);
 
-		// ── Botón: Visualizar todos los clientes ──
+		// - Botón: Visualizar todos los clientes
 		btnVisualizarClientes = new JButton("Visualizar todos los clientes");
 		btnVisualizarClientes.setName("btnVisualizarClientes");
 		btnVisualizarClientes.setFont(FUENTE_BOTON);
@@ -211,22 +183,6 @@ public class VentanaPrincipal extends JFrame {
 		gbcBtnVisualizar.gridy = 1;
 		pnlBotones.add(btnVisualizarClientes, gbcBtnVisualizar);
 
-		// ── Panel inferior (barra de estado) ──
-		pnlEstado = new JPanel();
-		pnlEstado.setName("pnlEstado");
-		pnlEstado.setBackground(COLOR_BARRA_ESTADO);
-		pnlEstado.setLayout(new BorderLayout(0, 0));
-		pnlEstado.setBorder(BorderFactory.createCompoundBorder(
-				BorderFactory.createMatteBorder(1, 0, 0, 0, new Color(200, 205, 210)), new EmptyBorder(6, 15, 6, 15)));
-		pnlEstado.setPreferredSize(new Dimension(0, 30));
-		contentPane.add(pnlEstado, BorderLayout.SOUTH);
-
-		lblEstado = new JLabel("Preparado - Seleccione una opción del menú");
-		lblEstado.setName("lblEstado");
-		lblEstado.setFont(FUENTE_ESTADO);
-		lblEstado.setForeground(new Color(100, 110, 120));
-		lblEstado.setHorizontalAlignment(SwingConstants.LEFT);
-		pnlEstado.add(lblEstado, BorderLayout.CENTER);
 	}
 
 }
