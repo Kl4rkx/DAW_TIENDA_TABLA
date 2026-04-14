@@ -1,24 +1,26 @@
 package controller;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import dao.*;
 import view.*;
+import dao.*;
+import model.*;
+import java.awt.event.*;
 
 public class Controlador implements ActionListener {
 
 	// Ventanas y DAOs
 	VentanaPrincipal vista;
+	VentanaAgregarCliente clienteVista;
 	ClienteDAO cDao;
+	ControladorAgregarCliente clienteController;
 
 	public Controlador(VentanaPrincipal vista) {
 
 		this.vista = vista;
 		vista.setVisible(true);
 
-		// Inicializar el DAO
+		// Inicializar el DAO y las ventanas
 		cDao = new ClienteDAO();
+		clienteVista = new VentanaAgregarCliente();
 
 		// Asociar botones al ActionListener
 		this.vista.btnAltaCliente.addActionListener(this);
@@ -32,7 +34,7 @@ public class Controlador implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		if (e.getSource() == vista.btnAltaCliente) {
-			
+			clienteController = new ControladorAgregarCliente(clienteVista, cDao);
 		}
 		
 	}

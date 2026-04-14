@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import java.awt.Toolkit;
 
 public class VentanaPrincipal extends JFrame {
 
@@ -54,6 +55,7 @@ public class VentanaPrincipal extends JFrame {
 	 * Crea la ventana principal e inicializa todos los componentes de la interfaz.
 	 */
 	public VentanaPrincipal() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaPrincipal.class.getResource("/assets/icon.png")));
 		setTitle("Gestión de Clientes");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setMinimumSize(new Dimension(ANCHO_VENTANA, ALTO_VENTANA));
@@ -105,8 +107,8 @@ public class VentanaPrincipal extends JFrame {
 		btnAltaCliente.setFont(FUENTE_BOTON);
 		btnAltaCliente.setForeground(new Color(255, 255, 255));
 		btnAltaCliente.setBackground(new Color(17, 100, 162));
-		btnAltaCliente.setToolTipText("Dar de alta un nuevo cliente en el sistema (Alt+A)");
-		btnAltaCliente.setMnemonic('A');
+		btnAltaCliente.setToolTipText("Dar de alta un nuevo cliente en el sistema (Alt+D)");
+		btnAltaCliente.setMnemonic('D');
 		btnAltaCliente.setFocusPainted(false);
 		btnAltaCliente.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		btnAltaCliente.setPreferredSize(new Dimension(ANCHO_BOTON, ALTO_BOTON));
