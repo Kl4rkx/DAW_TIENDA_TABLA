@@ -8,7 +8,7 @@ import model.Cliente;
 public class ClienteDAO {
 
 	// CREATE
-	public void addCliente(Cliente c) throws SQLException {
+	public void addCliente(Cliente c) {
 		// Usa "?" como marcadores de posición
 		String sql = "INSERT INTO clientes VALUES (?, ?, ?, ?, ?)";
 
@@ -19,7 +19,10 @@ public class ClienteDAO {
 			ps.setString(4, c.getCodPostal());
 			ps.setString(5, c.getTelefono());
 			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.err.println("Error en el método addCliente " + e.getMessage());
 		}
+
 	}
 
 	public ArrayList<Cliente> getClientes() throws SQLException {
@@ -71,6 +74,5 @@ public class ClienteDAO {
 
 		return cliente;
 	}
-	
 
 }

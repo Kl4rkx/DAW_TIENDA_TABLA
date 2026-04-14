@@ -2,7 +2,6 @@ package controller;
 
 import view.*;
 import dao.*;
-import model.*;
 import java.awt.event.*;
 
 public class Controlador implements ActionListener {
@@ -32,11 +31,11 @@ public class Controlador implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+
 		if (e.getSource() == vista.btnAltaCliente) {
 			clienteController = new ControladorAgregarCliente(clienteVista, cDao);
 		}
-		
+
 	}
 
 }
