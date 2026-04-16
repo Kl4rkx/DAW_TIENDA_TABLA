@@ -29,15 +29,15 @@ public class VentanaPrincipal extends JFrame {
 	private static final Color COLOR_BORDE_BOTON = new Color(30, 75, 135);
 
 	// Tamaños
-	private static final int ANCHO_VENTANA = 650;
-	private static final int ALTO_VENTANA = 450;
-	private static final int ANCHO_BOTON = 200;
-	private static final int ALTO_BOTON = 55;
-	private static final int PADDING_BOTON = 10;
+	private static final int ANCHO_VENTANA = 980;
+	private static final int ALTO_VENTANA = 680;
+	private static final int ANCHO_BOTON = 360;
+	private static final int ALTO_BOTON = 90;
+	private static final int PADDING_BOTON = 16;
 
 	// Fuentes
-	private static final Font FUENTE_TITULO = new Font("Segoe UI", Font.BOLD, 18);
-	private static final Font FUENTE_BOTON = new Font("Segoe UI", Font.PLAIN, 13);
+	private static final Font FUENTE_TITULO = new Font("Segoe UI", Font.BOLD, 30);
+	private static final Font FUENTE_BOTON = new Font("Segoe UI", Font.BOLD, 22);
 
 	// Componentes de la interfaz
 	private JPanel contentPane;
@@ -48,6 +48,7 @@ public class VentanaPrincipal extends JFrame {
 	public JButton btnModificarCliente;
 	public JButton btnEliminarCliente;
 	public JButton btnVisualizarClientes;
+	public JButton btnSalir;
 
 	// Constructor
 
@@ -76,8 +77,8 @@ public class VentanaPrincipal extends JFrame {
 		pnlCabecera.setName("pnlCabecera");
 		pnlCabecera.setBackground(COLOR_CORPORATIVO);
 		pnlCabecera.setLayout(new BorderLayout(0, 0));
-		pnlCabecera.setBorder(new EmptyBorder(15, 20, 15, 20));
-		pnlCabecera.setPreferredSize(new Dimension(0, 60));
+		pnlCabecera.setBorder(new EmptyBorder(18, 20, 18, 20));
+		pnlCabecera.setPreferredSize(new Dimension(0, 90));
 		contentPane.add(pnlCabecera, BorderLayout.NORTH);
 
 		lblTitulo = new JLabel("Gestión de Clientes");
@@ -91,13 +92,13 @@ public class VentanaPrincipal extends JFrame {
 		pnlBotones = new JPanel();
 		pnlBotones.setName("pnlBotones");
 		pnlBotones.setBackground(COLOR_FONDO);
-		pnlBotones.setBorder(new EmptyBorder(30, 40, 30, 40));
+		pnlBotones.setBorder(new EmptyBorder(35, 60, 35, 60));
 
 		GridBagLayout gblPnlBotones = new GridBagLayout();
 		gblPnlBotones.columnWidths = new int[] { 0, 0 };
-		gblPnlBotones.rowHeights = new int[] { 0, 0 };
+		gblPnlBotones.rowHeights = new int[] { 0, 0, 0 };
 		gblPnlBotones.columnWeights = new double[] { 1.0, 1.0 };
-		gblPnlBotones.rowWeights = new double[] { 1.0, 1.0 };
+		gblPnlBotones.rowWeights = new double[] { 1.0, 1.0, 1.0 };
 		pnlBotones.setLayout(gblPnlBotones);
 		contentPane.add(pnlBotones, BorderLayout.CENTER);
 
@@ -184,6 +185,28 @@ public class VentanaPrincipal extends JFrame {
 		gbcBtnVisualizar.gridx = 1;
 		gbcBtnVisualizar.gridy = 1;
 		pnlBotones.add(btnVisualizarClientes, gbcBtnVisualizar);
+
+		// - Botón: Salir
+		btnSalir = new JButton("Salir");
+		btnSalir.setName("btnSalir");
+		btnSalir.setFont(FUENTE_BOTON);
+		btnSalir.setForeground(new Color(255, 255, 255));
+		btnSalir.setBackground(new Color(170, 58, 58));
+		btnSalir.setToolTipText("Cerrar la aplicacion");
+		btnSalir.setMnemonic('S');
+		btnSalir.setFocusPainted(false);
+		btnSalir.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		btnSalir.setPreferredSize(new Dimension(ANCHO_BOTON, ALTO_BOTON));
+		btnSalir.setBorder(BorderFactory.createCompoundBorder(
+				BorderFactory.createLineBorder(new Color(135, 45, 45), 1, true), new EmptyBorder(8, 16, 8, 16)));
+
+		GridBagConstraints gbcBtnSalir = new GridBagConstraints();
+		gbcBtnSalir.insets = new Insets(PADDING_BOTON, PADDING_BOTON, PADDING_BOTON, PADDING_BOTON);
+		gbcBtnSalir.fill = GridBagConstraints.BOTH;
+		gbcBtnSalir.gridx = 0;
+		gbcBtnSalir.gridy = 2;
+		gbcBtnSalir.gridwidth = 2;
+		pnlBotones.add(btnSalir, gbcBtnSalir);
 
 	}
 

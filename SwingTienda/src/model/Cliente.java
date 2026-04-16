@@ -61,16 +61,11 @@ public class Cliente {
 		this.telefono = telefono;
 	}
 
-
-    // Representación en texto
-    @Override
-    public String toString() {
-        return "Jugador:\n" +
-               "  ID: " + id + "\n" +
-               "  Nombre: " + nombre + "\n" +
-               "  Dirección: " + direccion + "\n" +
-               "  Código Postal: " + codPostal + "\n" +
-               "  Teléfono: " + telefono + "\n";
-    }
+	// Representación en texto
+	@Override
+	public String toString() {
+		return "Jugador:\n" + "  ID: " + id + "\n" + "  Nombre: " + nombre + "\n" + "  Dirección: " + direccion + "\n"
+				+ "  Código Postal: " + codPostal + "\n" + "  Teléfono: " + telefono + "\n";
+	}
 
 }

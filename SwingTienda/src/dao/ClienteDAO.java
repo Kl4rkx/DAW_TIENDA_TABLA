@@ -25,7 +25,7 @@ public class ClienteDAO {
 
 	}
 
-	public ArrayList<Cliente> getClientes() throws SQLException {
+	public ArrayList<Cliente> getClientes() {
 		ArrayList<Cliente> listaClientes = new ArrayList<>();
 		String consulta = "SELECT * FROM clientes;";
 
@@ -48,6 +48,39 @@ public class ClienteDAO {
 		}
 
 		return listaClientes;
+	}
+
+	// UPDATE
+	public boolean updateCliente(Cliente c) {
+		String sql = "UPDATE clientes SET nombre = ?, direccion = ?, codPostal = ?, telefono = ? WHERE id = ?";
+
+		try (Connection con = DbConnection.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+			ps.setString(1, c.getNombre());
+			ps.setString(2, c.getDireccion());
+			ps.setString(3, c.getCodPostal());
+			ps.setString(4, c.getTelefono());
+			ps.setString(5, c.getId());
+
+			return ps.executeUpdate() > 0;
+		} catch (SQLException e) {
+			System.err.println("Error en el método updateCliente: " + e.getMessage());
+		}
+
+		return false;
+	}
+
+	// DELETE
+	public boolean deleteClienteById(String id) {
+		String sql = "DELETE FROM clientes WHERE id = ?";
+
+		try (Connection con = DbConnection.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+			ps.setString(1, id);
+			return ps.executeUpdate() > 0;
+		} catch (SQLException e) {
+			System.err.println("Error en el método deleteClienteById: " + e.getMessage());
+		}
+
+		return false;
 	}
 
 	public Cliente getClienteById(String id) {
