@@ -2,6 +2,16 @@
 
 Aplicación de escritorio hecha en Java Swing para gestionar clientes de una tienda.
 
+## Video
+
+Demostración del funcionamiento de la aplicación:
+
+<video src="assets/Funcionamiento.mp4" width="100%" controls>
+  Tu navegador no soporta la reproducción de videos HTML5. <a href="assets/Funcionamiento.mp4">Descarga el video aquí</a>
+</video>
+
+https://github.com/user-attachments/assets/9c91879b-ae1d-4143-a76b-50d0a6e50679
+
 ## Qué hace
 
 - Dar de alta clientes.
